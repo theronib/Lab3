@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+
+    <style>
+        body {
+            background-color: rgb(161, 160, 160);
+        }
+    </style>
+
+</head>
+
+<body>
+  <section id="p1">
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="Назва товару">
+    </div>
+    
+    <button class="button" type="button" onclick="addItem()">Додати</button>
+    
+    <div class="mainline page1line"></div>
+
+    <article class="tomato">
+      <s onclick="startEditing(this)">Помідори</s>
+    </article>
+    
+    <hr class="line page1line1"></hr>
+    
+    <article class="cookies">
+      <p onclick="startEditing(this)">Печиво</p>
+    </article>
+    
+    <hr class="line page1line2"></hr>
+    
+    <article class="potato">
+      <p onclick="startEditing(this)">Сир</p>
+    </article>
+    
+    <div id="newField"></div>
+      
+  
+      <div id="counter1">
+        <p style="color:#6a6565">2</p>
+      </div>
+      
+      <div id="counter2">
+        <p style="color:#6a6565">2</p>
+      </div>
+      
+      <div id="counter3">
+        <p style="color:#6a6565">1</p>
+      </div>
+      
+      <button class="add-button add-button0" onclick="increaseQuantity(1)">
+        <p>+</p>
+        <span class="tooltip">Додати товар</span>
+      </button>
+      
+      <button class="add-button add-button1" onclick="increaseQuantity(3)">
+        <p>+</p>
+        <span class="tooltip">Додати товар</span>
+      </button>
+      
+      <button class="add-button add-button2" onclick="increaseQuantity(2)">
+        <p>+</p>
+        <span class="tooltip">Додати товар</span>
+      </button>
+      
+      <button class="add-button remove-button0" onclick="decreaseQuantity(1)">
+        <p>-</p>
+        <span class="tooltip">Видалити товар</span>
+      </button>
+      
+      <button class="add-button remove-button1" onclick="decreaseQuantity(3)">
+        <p>-</p>
+        <span class="tooltip">Видалити товар</span>
+      </button>
+      
+      <button class="add-button remove-button2" onclick="decreaseQuantity(2)">
+        <p>-</p>
+        <span class="tooltip">Видалити товар</span>
+      </button>
+      
+      
+  
+      <article class="not-bought">
+        <p>Не куплено</p>
+      </article>
+  
+      <article class="was-bought">
+        <p>Куплено</p>
+        <span class="tooltip">Немає в наявності</span>
+      </article>
+  
+      <article class="was-bought was-bought-1">
+        <p>Куплено</p>
+      </article>
+  
+      <div class="cancel-action cancel-action1">
+        <p>x</p>
+        <span class="tooltip tooltip1">Видалити товар зі списку</span>
+      </div>
+  
+      <div class="cancel-action cancel-action2">
+        <p>x</p>
+        <span class="tooltip tooltip1">Видалити товар зі списку</span>
+      </div>
+    </section>
+
+    
+  
+    <section id="p2">
+      <h1>
+        <span class="header">Залишилося</span>
+      </h1>
+  
+      <div class="line page2line"></div>
+  
+      <article class="product-item item1">
+        <p>Печиво</p>
+        <span class="amount">2</span>
+      </article>
+  
+      <article class="product-item item2">
+        <p>Сир</p>
+        <span class="amount">1</span>
+      </article>
+  
+      <div class="line line2"></div>
+  
+      <h1>
+        <span class="head-bought">Куплено</span>
+      </h1>
+  
+      <div class="line line3"></div>
+  
+      <article class="product-item itemcrossed">
+        <s>Помідори</s>
+        <span class="amount">2</span>
+      </article>
+    </section>
+
+<div class = "badge">
+  <p class = "badgename">Buy List</p>
+  <sub class = "name">Created by: Yaroslav Baranivskyy</sub>
+</div>
+
+<script src="main1.js"></script>
+
+
+  </body>
+  
+
+</html>
