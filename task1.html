@@ -42,65 +42,65 @@
       <p onclick="startEditing(this)">Сир</p>
     </article>
     
+    
     <div id="newField"></div>
+    
+    <div id="counter1">
+      <p style="color:#6a6565">2</p>
+    </div>
+    
+    <div id="counter2">
+      <p style="color:#6a6565">2</p>
+    </div>
+    
+    <div id="counter3">
+      <p style="color:#6a6565">1</p>
+    </div>
+    
+    <button class="add-button add-button0" onclick="increaseQuantity(1)">
+      <p>+</p>
+      <span class="tooltip">Додати товар</span>
+    </button>
+    
+    <button class="add-button add-button1" onclick="increaseQuantity(3)">
+      <p>+</p>
+      <span class="tooltip">Додати товар</span>
+    </button>
+    
+    <button class="add-button add-button2" onclick="increaseQuantity(2)">
+      <p>+</p>
+      <span class="tooltip">Додати товар</span>
+    </button>
+    
+    <button class="add-button remove-button0" onclick="decreaseQuantity(1)">
+      <p>-</p>
+      <span class="tooltip">Видалити товар</span>
+    </button>
+    
+    <button class="add-button remove-button1" onclick="decreaseQuantity(3)">
+      <p>-</p>
+      <span class="tooltip">Видалити товар</span>
+    </button>
+    
+    <button class="add-button remove-button2" onclick="decreaseQuantity(2)">
+      <p>-</p>
+      <span class="tooltip">Видалити товар</span>
+    </button>
+    
       
+    <button class="buy-button not-bought" onclick="toggleBoughtStatus(this)">Не куплено</button>
+    <button class="not-bought-action" onclick="toggleBoughtStatus(this)">Зробити не купленим</button>
+
+
   
-      <div id="counter1">
-        <p style="color:#6a6565">2</p>
-      </div>
-      
-      <div id="counter2">
-        <p style="color:#6a6565">2</p>
-      </div>
-      
-      <div id="counter3">
-        <p style="color:#6a6565">1</p>
-      </div>
-      
-      <button class="add-button add-button0" onclick="increaseQuantity(1)">
-        <p>+</p>
-        <span class="tooltip">Додати товар</span>
-      </button>
-      
-      <button class="add-button add-button1" onclick="increaseQuantity(3)">
-        <p>+</p>
-        <span class="tooltip">Додати товар</span>
-      </button>
-      
-      <button class="add-button add-button2" onclick="increaseQuantity(2)">
-        <p>+</p>
-        <span class="tooltip">Додати товар</span>
-      </button>
-      
-      <button class="add-button remove-button0" onclick="decreaseQuantity(1)">
-        <p>-</p>
-        <span class="tooltip">Видалити товар</span>
-      </button>
-      
-      <button class="add-button remove-button1" onclick="decreaseQuantity(3)">
-        <p>-</p>
-        <span class="tooltip">Видалити товар</span>
-      </button>
-      
-      <button class="add-button remove-button2" onclick="decreaseQuantity(2)">
-        <p>-</p>
-        <span class="tooltip">Видалити товар</span>
-      </button>
-      
-      
-  
-      <article class="not-bought">
-        <p>Не куплено</p>
-      </article>
-  
-      <article class="was-bought">
+      <button class="was-bought">
         <p>Куплено</p>
         <span class="tooltip">Немає в наявності</span>
-      </article>
+      </button>
   
-      <article class="was-bought was-bought-1">
+      <button class="was-bought was-bought-1">
         <p>Куплено</p>
-      </article>
+      </button>
   
       <div class="cancel-action cancel-action1">
         <p>x</p>

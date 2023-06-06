@@ -65,7 +65,50 @@
   border: 2px solid #cecece;
   position: absolute;
   top: 17%;
-  left: 47%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+}
+
+.was-bought-action{
+  color: rgb(117, 114, 114);
+  background-color: #f0f0f0;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 13px;
+  width: 100px;
+  height: 10px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border: 2px solid #cecece;
+  position: absolute;
+  top: 17%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+}
+
+.not-bought-action{
+  color: rgb(117, 114, 114);
+  background-color: #f0f0f0;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 13px;
+  width: 80px;
+  height: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 8.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border: 2px solid #cecece;
+  position: absolute;
+  top: 17%;
+  left: 49%;
   transform: translate(-50%, -50%);
 }
 
@@ -162,8 +205,9 @@
   position: relative;
   font-family: Arial;
   font-size: 20px;
-  top: 62px; 
+  top: 60px; 
   left: -2%;
+  /* margin-bottom: -10%; */
 }
 
 .cookies, .potato {
