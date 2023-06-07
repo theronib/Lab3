@@ -166,17 +166,6 @@
 
 }
 
-.cancel-action1 {
-  top: 26%; 
-  left: 49.8%;
-}
-
-.cancel-action2 {
-  top: 35%; 
-  left: 49.8%;
-}
-
-
 .search input[type="text"] {
     width: 680px;
     height: 25px;
@@ -634,9 +623,29 @@
   border-radius: 3px;
   border: 2px solid #cecece;
   position: absolute;
-  top: 50%;
+  top: 53%;
   left: 85%;
   transform: translate(-50%, -50%);
+}
+
+.cancel-action1 {
+  top: 46%; 
+  left: 94%;
+}
+
+.cancel-action2 {
+  top: 48%; 
+  left: 94%;
+}
+
+.cancel-action3{
+  top: 50%; 
+  left: 94%;
+}
+
+.cancel-action4{
+  top: 52%;
+  left: 94%;
 }
 
 @media print {

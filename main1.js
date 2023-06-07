@@ -141,9 +141,6 @@ function toggleBoughtStatus(button) {
 
 
 // ДОДАВАННЯ ТОВАРУ
-
-
-// Функція для додавання елемента і збереження значення
 function addItem() {
   var columnNew = document.querySelector('.column-new');
   var searchInput = document.getElementById('searchInput');
@@ -158,60 +155,11 @@ function addItem() {
 
   searchInput.value = ''; // Очищуємо поле вводу
 
+  // Зберігаємо значення поля в локальному сховищі
   localStorage.setItem('item1', newItemAdded.innerHTML);
-
-
 }
 
-function addItem2() {
-  var columnNew2 = document.querySelector('.column-new2');
-  var searchInput = document.getElementById('searchInput');
-
-  var newItemAdded2 = document.querySelector('.added2');
-  newItemAdded2.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
-
-  columnNew2.style.display = 'block'; // Змінюємо стиль блоку на видимий
-
-  var addButton = document.querySelector('.button');
-  addButton.onclick = addItem3; // Змінюємо функцію, яка викликається при натисканні на кнопку
-
-  searchInput.value = ''; // Очищуємо поле вводу
-
-}
-
-function addItem3() {
-  var columnNew3 = document.querySelector('.column-new3');
-  var searchInput = document.getElementById('searchInput');
-
-  var newItemAdded3 = document.querySelector('.added3');
-  newItemAdded3.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
-
-  columnNew3.style.display = 'block'; // Змінюємо стиль блоку на видимий
-
-  var addButton = document.querySelector('.button');
-  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
-
-  searchInput.value = ''; // Очищуємо поле вводу
-
-  
-}
-
-function addItem4() {
-  var columnNew4 = document.querySelector('.column-new4');
-  var searchInput = document.getElementById('searchInput');
-
-  var newItemAdded4 = document.querySelector('.added4');
-  newItemAdded4.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
-
-  columnNew4.style.display = 'block'; // Змінюємо стиль блоку на видимий
-
-  var addButton = document.querySelector('.button');
-  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
-
-  searchInput.value = ''; // Очищуємо поле вводу
-  
-}
-
+// Функція для завантаження доданих товарів під час завантаження сторінки
 window.onload = function() {
   // Отримуємо значення з локального сховища
   var savedItem = localStorage.getItem('item1');
@@ -226,4 +174,178 @@ window.onload = function() {
     var addButton = document.querySelector('.button');
     addButton.onclick = addItem2;
   }
+
+  var savedItem2 = localStorage.getItem('item2');
+
+  if (savedItem2) {
+    var newItemAdded2 = document.querySelector('.added2');
+    newItemAdded2.innerHTML = savedItem2;
+
+    var columnNew2 = document.querySelector('.column-new2');
+    columnNew2.style.display = 'block';
+
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem3;
+  }
+
+  var savedItem3 = localStorage.getItem('item3');
+
+    if (savedItem3) {
+      var newItemAdded3 = document.querySelector('.added3');
+      newItemAdded3.innerHTML = savedItem3;
+  
+      var columnNew3 = document.querySelector('.column-new3');
+      columnNew3.style.display = 'block';
+  
+      var addButton = document.querySelector('.button');
+      addButton.onclick = addItem4;
+    }
+
+    var savedItem4 = localStorage.getItem('item4');
+
+      if (savedItem4) {
+        var newItemAdded4 = document.querySelector('.added4');
+        newItemAdded4.innerHTML = savedItem4;
+    
+        var columnNew4 = document.querySelector('.column-new4');
+        columnNew4.style.display = 'block';
+    
+        var addButton = document.querySelector('.button');
+        addButton.onclick = addItem4;
+      }
 }
+
+// Функція для додавання товару 2
+function addItem2() {
+  var columnNew2 = document.querySelector('.column-new2');
+  var searchInput = document.getElementById('searchInput');
+
+  var newItemAdded2 = document.querySelector('.added2');
+  newItemAdded2.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+
+  columnNew2.style.display = 'block'; // Змінюємо стиль блоку на видимий
+
+  var addButton = document.querySelector('.button');
+  addButton.onclick = addItem3; // Змінюємо функцію, яка викликається при натисканні на кнопку
+
+  searchInput.value = ''; // Очищуємо поле вводу
+
+  // Зберігаємо значення поля в локальному сховищі
+  localStorage.setItem('item2', newItemAdded2.innerHTML);
+}
+
+
+
+// Функція для додавання товару 3
+function addItem3() {
+  var columnNew3 = document.querySelector('.column-new3');
+  var searchInput = document.getElementById('searchInput');
+
+  var newItemAdded3 = document.querySelector('.added3');
+  newItemAdded3.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+
+  columnNew3.style.display = 'block'; // Змінюємо стиль блоку на видимий
+
+  var addButton = document.querySelector('.button');
+  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
+
+  searchInput.value = ''; // Очищуємо поле вводу
+
+  // Зберігаємо значення поля в локальному сховищі
+  localStorage.setItem('item3', newItemAdded3.innerHTML);
+}
+
+
+// Функція для додавання товару 4
+function addItem4() {
+  var columnNew4 = document.querySelector('.column-new4');
+  var searchInput = document.getElementById('searchInput');
+
+  var newItemAdded4 = document.querySelector('.added4');
+  newItemAdded4.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+
+  columnNew4.style.display = 'block'; // Змінюємо стиль блоку на видимий
+
+  var addButton = document.querySelector('.button');
+  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
+
+  searchInput.value = ''; // Очищуємо поле вводу
+
+  // Зберігаємо значення поля в локальному сховищі
+  localStorage.setItem('item4', newItemAdded4.innerHTML);
+}
+
+// ВИДАЛЕННЯ НЕ КУПЛЕНОГО ТОВАРУ
+
+// function removeItem() {
+//   var sectionToRemove = event.target.closest('section');
+//   var columnNew = sectionToRemove.parentElement;
+//   columnNew.removeChild(sectionToRemove);
+
+//   // Зберігаємо дані
+//   var savedItems = getSavedItems();
+//   delete savedItems['item1'];
+//   delete savedItems['item2'];
+//   delete savedItems['item3'];
+//   delete savedItems['item4'];
+//   saveItems(savedItems);
+// }
+
+// function getSavedItems() {
+//   var savedItems = localStorage.getItem('items');
+//   if (savedItems) {
+//     return JSON.parse(savedItems);
+//   } else {
+//     return {};
+//   }
+// }
+
+// function saveItems(items) {
+//   localStorage.setItem('items', JSON.stringify(items));
+// }
+
+// function removeItem() {
+//   var sectionToRemove = event.target.closest('section');
+//   var columnNew = sectionToRemove.parentElement;
+//   columnNew.removeChild(sectionToRemove);
+
+//   // Отримуємо збережені елементи
+//   var savedItems = getSavedItems();
+
+//   // Отримуємо ID елемента, який був видалений
+//   var itemId = sectionToRemove.getAttribute('id');
+
+//   // Видаляємо елемент зі збережених даних
+//   delete savedItems[itemId];
+
+//   // Зберігаємо оновлені дані
+//   saveItems(savedItems);
+// }
+
+// // Отримати збережені елементи з локального сховища
+// function getSavedItems() {
+//   var savedItems = localStorage.getItem('savedItems');
+//   return savedItems ? JSON.parse(savedItems) : {};
+// }
+
+// // Зберегти елементи у локальному сховищі
+// function saveItems(items) {
+//   localStorage.setItem('savedItems', JSON.stringify(items));
+// }
+
+
+// function removeItem(blockNumber) {
+//   var sectionToRemove = document.querySelector('.column-new' + blockNumber);
+//   if (sectionToRemove) {
+//     var columnNew = sectionToRemove.parentNode;
+//     columnNew.removeChild(sectionToRemove);
+
+//     // Отримуємо збережені елементи
+//     var savedItems = getSavedItems();
+//     var itemName = 'item' + blockNumber;
+//     delete savedItems[itemName];
+
+//     // Зберігаємо оновлені елементи у локальному сховищі
+//     saveItems(savedItems);
+//   }
+// }
