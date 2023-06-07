@@ -85,36 +85,33 @@ function finishEditing(element, newText) {
   updatedElement.textContent = newText;
   updatedElement.onclick = () => startEditing(updatedElement);
 
-  // Збереження нової назви в локальному сховищі
   localStorage.setItem(element.tagName.toLowerCase(), newText);
 
   element.replaceWith(updatedElement);
 }
 
 // Отримання збереженої назви з локального сховища при завантаженні сторінки
-document.addEventListener('DOMContentLoaded', () => {
-  const tomatoElement = document.querySelector('.tomato s');
-  const tomatoText = localStorage.getItem('s');
-  if (tomatoText) {
-    tomatoElement.textContent = tomatoText;
-  }
+// document.addEventListener('DOMContentLoaded', () => {
+//   const tomatoElement = document.querySelector('.tomato s');
+//   const tomatoText = localStorage.getItem('s');
+//   if (tomatoText) {
+//     tomatoElement.textContent = tomatoText;
+//   }
 
-  const cookiesElement = document.querySelector('.cookies p');
-  const cookiesText = localStorage.getItem('p');
-  if (cookiesText) {
-    cookiesElement.textContent = cookiesText;
-  }
+//   const cookiesElement = document.querySelector('.cookies p');
+//   const cookiesText = localStorage.getItem('p');
+//   if (cookiesText) {
+//     cookiesElement.textContent = cookiesText;
+//   }
 
 
   
-  const potatoElement = document.querySelector('.potato p');
-  const potatoText = localStorage.getItem('p');
-  if (potatoText) {
-    potatoElement.textContent = potatoText;
-  }
-});
-
-
+//   const potatoElement = document.querySelector('.potato p');
+//   const potatoText = localStorage.getItem('p');
+//   if (potatoText) {
+//     potatoElement.textContent = potatoText;
+//   }
+// });
 
 
 // НЕКУПЛЕНО -> КУПЛЕНО
@@ -143,41 +140,90 @@ function toggleBoughtStatus(button) {
 }
 
 
+// ДОДАВАННЯ ТОВАРУ
 
 
+// Функція для додавання елемента і збереження значення
+function addItem() {
+  var columnNew = document.querySelector('.column-new');
+  var searchInput = document.getElementById('searchInput');
 
-  
-//   function addItem() {
-//     const newInput = document.createElement('input');
-//     newInput.type = 'text';
-//     newInput.placeholder = 'Назва товару';
-  
-//     const addButton = document.createElement('button');
-//     addButton.className = 'add-button';
-//     addButton.innerHTML = '<p>+</p><span class="tooltip">Додати товар</span>';
-//     addButton.addEventListener('click', increaseQuantity.bind(null, 4));
-  
-//     const removeButton = document.createElement('button');
-//     removeButton.className = 'add-button remove-button';
-//     removeButton.innerHTML = '<p>-</p><span class="tooltip">Видалити товар</span>';
-//     removeButton.addEventListener('click', decreaseQuantity.bind(null, 4));
-  
-//     const newField = document.getElementById('newField');
-//     newField.innerHTML = '';
-//     newField.appendChild(newInput);
-//     newField.appendChild(addButton);
-//     newField.appendChild(removeButton);
-  
-//     // Зміна розмірів контейнера
-//     const section = document.getElementById('p1');
-//     section.style.height = section.offsetHeight + 8 + 'px';
-  
-//     // Додавання <hr>
-//     const hr = document.createElement('hr');
-//     newField.style.marginTop = '100px';
+  var newItemAdded = document.querySelector('.newitem-added');
+  newItemAdded.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
 
-// newField.appendChild(hr);
+  columnNew.style.display = 'block'; // Змінюємо стиль блоку на видимий
+
+  var addButton = document.querySelector('.button');
+  addButton.onclick = addItem2; // Змінюємо функцію, яка викликається при натисканні на кнопку
+
+  searchInput.value = ''; // Очищуємо поле вводу
+
+  localStorage.setItem('item1', newItemAdded.innerHTML);
 
 
-//   }
+}
+
+function addItem2() {
+  var columnNew2 = document.querySelector('.column-new2');
+  var searchInput = document.getElementById('searchInput');
+
+  var newItemAdded2 = document.querySelector('.added2');
+  newItemAdded2.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+
+  columnNew2.style.display = 'block'; // Змінюємо стиль блоку на видимий
+
+  var addButton = document.querySelector('.button');
+  addButton.onclick = addItem3; // Змінюємо функцію, яка викликається при натисканні на кнопку
+
+  searchInput.value = ''; // Очищуємо поле вводу
+
+}
+
+function addItem3() {
+  var columnNew3 = document.querySelector('.column-new3');
+  var searchInput = document.getElementById('searchInput');
+
+  var newItemAdded3 = document.querySelector('.added3');
+  newItemAdded3.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+
+  columnNew3.style.display = 'block'; // Змінюємо стиль блоку на видимий
+
+  var addButton = document.querySelector('.button');
+  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
+
+  searchInput.value = ''; // Очищуємо поле вводу
+
   
+}
+
+function addItem4() {
+  var columnNew4 = document.querySelector('.column-new4');
+  var searchInput = document.getElementById('searchInput');
+
+  var newItemAdded4 = document.querySelector('.added4');
+  newItemAdded4.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+
+  columnNew4.style.display = 'block'; // Змінюємо стиль блоку на видимий
+
+  var addButton = document.querySelector('.button');
+  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
+
+  searchInput.value = ''; // Очищуємо поле вводу
+  
+}
+
+window.onload = function() {
+  // Отримуємо значення з локального сховища
+  var savedItem = localStorage.getItem('item1');
+
+  if (savedItem) {
+    var newItemAdded = document.querySelector('.newitem-added');
+    newItemAdded.innerHTML = savedItem;
+
+    var columnNew = document.querySelector('.column-new');
+    columnNew.style.display = 'block';
+
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem2;
+  }
+}
