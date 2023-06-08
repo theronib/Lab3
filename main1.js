@@ -90,54 +90,31 @@ function finishEditing(element, newText) {
   element.replaceWith(updatedElement);
 }
 
-// Отримання збереженої назви з локального сховища при завантаженні сторінки
-// document.addEventListener('DOMContentLoaded', () => {
-//   const tomatoElement = document.querySelector('.tomato s');
-//   const tomatoText = localStorage.getItem('s');
-//   if (tomatoText) {
-//     tomatoElement.textContent = tomatoText;
-//   }
-
-//   const cookiesElement = document.querySelector('.cookies p');
-//   const cookiesText = localStorage.getItem('p');
-//   if (cookiesText) {
-//     cookiesElement.textContent = cookiesText;
-//   }
-
-
-  
-//   const potatoElement = document.querySelector('.potato p');
-//   const potatoText = localStorage.getItem('p');
-//   if (potatoText) {
-//     potatoElement.textContent = potatoText;
-//   }
-// });
-
 
 // НЕКУПЛЕНО -> КУПЛЕНО
-function toggleBoughtStatus(button) {
-  var container = button.parentNode;
+// function toggleBoughtStatus(button) {
+//   var container = button.parentNode;
   
-  if (button.classList.contains('not-bought')) {
-    // Зміна стану з "Не куплено" на "Куплено"
-    button.style.display = 'none'; // Приховати кнопку "Не куплено"
+//   if (button.classList.contains('not-bought')) {
+//     // Зміна стану з "Не куплено" на "Куплено"
+//     button.style.display = 'none'; // Приховати кнопку "Не куплено"
     
-    var boughtButton = document.createElement('button');
-    boughtButton.textContent = 'Куплено';
-    boughtButton.className = 'was-bought-action';
-    boughtButton.onclick = function() {
-      toggleBoughtStatus(boughtButton);
-    };
+//     var boughtButton = document.createElement('button');
+//     boughtButton.textContent = 'Куплено';
+//     boughtButton.className = 'was-bought-action';
+//     boughtButton.onclick = function() {
+//       toggleBoughtStatus(boughtButton);
+//     };
     
-    container.appendChild(boughtButton); // Додати кнопку "Куплено"
-  } else {
-    // Зміна стану з "Куплено" на "Не куплено"
-    button.style.display = ''; // Показати кнопку "Не куплено"
+//     container.appendChild(boughtButton); // Додати кнопку "Куплено"
+//   } else {
+//     // Зміна стану з "Куплено" на "Не куплено"
+//     button.style.display = ''; // Показати кнопку "Не куплено"
     
-    var wasBoughtButton = container.querySelector('.was-bought');
-    container.removeChild(wasBoughtButton); // Видалити кнопку "Куплено"
-  }
-}
+//     var wasBoughtButton = container.querySelector('.was-bought');
+//     container.removeChild(wasBoughtButton); // Видалити кнопку "Куплено"
+//   }
+// }
 
 
 // ДОДАВАННЯ ТОВАРУ
@@ -159,63 +136,7 @@ function addItem() {
   localStorage.setItem('item1', newItemAdded.innerHTML);
 }
 
-// Функція для завантаження доданих товарів під час завантаження сторінки
-window.onload = function() {
-  // Отримуємо значення з локального сховища
-  var savedItem = localStorage.getItem('item1');
 
-  if (savedItem) {
-    var newItemAdded = document.querySelector('.newitem-added');
-    newItemAdded.innerHTML = savedItem;
-
-    var columnNew = document.querySelector('.column-new');
-    columnNew.style.display = 'block';
-
-    var addButton = document.querySelector('.button');
-    addButton.onclick = addItem2;
-  }
-
-  var savedItem2 = localStorage.getItem('item2');
-
-  if (savedItem2) {
-    var newItemAdded2 = document.querySelector('.added2');
-    newItemAdded2.innerHTML = savedItem2;
-
-    var columnNew2 = document.querySelector('.column-new2');
-    columnNew2.style.display = 'block';
-
-    var addButton = document.querySelector('.button');
-    addButton.onclick = addItem3;
-  }
-
-  var savedItem3 = localStorage.getItem('item3');
-
-    if (savedItem3) {
-      var newItemAdded3 = document.querySelector('.added3');
-      newItemAdded3.innerHTML = savedItem3;
-  
-      var columnNew3 = document.querySelector('.column-new3');
-      columnNew3.style.display = 'block';
-  
-      var addButton = document.querySelector('.button');
-      addButton.onclick = addItem4;
-    }
-
-    var savedItem4 = localStorage.getItem('item4');
-
-      if (savedItem4) {
-        var newItemAdded4 = document.querySelector('.added4');
-        newItemAdded4.innerHTML = savedItem4;
-    
-        var columnNew4 = document.querySelector('.column-new4');
-        columnNew4.style.display = 'block';
-    
-        var addButton = document.querySelector('.button');
-        addButton.onclick = addItem4;
-      }
-}
-
-// Функція для додавання товару 2
 function addItem2() {
   var columnNew2 = document.querySelector('.column-new2');
   var searchInput = document.getElementById('searchInput');
@@ -233,7 +154,6 @@ function addItem2() {
   // Зберігаємо значення поля в локальному сховищі
   localStorage.setItem('item2', newItemAdded2.innerHTML);
 }
-
 
 
 // Функція для додавання товару 3
@@ -275,77 +195,91 @@ function addItem4() {
   localStorage.setItem('item4', newItemAdded4.innerHTML);
 }
 
+
+// Функція для завантаження доданих товарів під час завантаження сторінки
+window.onload = function() {   
+
+  // Отримуємо значення з локального сховища
+  var savedItem = localStorage.getItem('item1');
+
+  if (savedItem) {
+    var newItemAdded = document.querySelector('.newitem-added');
+    newItemAdded.innerHTML = savedItem;
+
+    var columnNew = document.querySelector('.column-new');
+    columnNew.style.display = 'block';
+
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem2;
+    localStorage.removeItem('item1');
+  }
+
+  var savedItem2 = localStorage.getItem('item2');
+
+  if (savedItem2) {
+    var newItemAdded2 = document.querySelector('.added2');
+    newItemAdded2.innerHTML = savedItem2;
+
+    var columnNew2 = document.querySelector('.column-new2');
+    columnNew2.style.display = 'block';
+
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem3;
+    localStorage.removeItem('item2');
+
+  }
+
+  var savedItem3 = localStorage.getItem('item3');
+
+    if (savedItem3) {
+      var newItemAdded3 = document.querySelector('.added3');
+      newItemAdded3.innerHTML = savedItem3;
+  
+      var columnNew3 = document.querySelector('.column-new3');
+      columnNew3.style.display = 'block';
+  
+      var addButton = document.querySelector('.button');
+      addButton.onclick = addItem4;
+      localStorage.removeItem('item3');
+
+    }
+
+    var savedItem4 = localStorage.getItem('item4');
+
+      if (savedItem4) {
+        var newItemAdded4 = document.querySelector('.added4');
+        newItemAdded4.innerHTML = savedItem4;
+    
+        var columnNew4 = document.querySelector('.column-new4');
+        columnNew4.style.display = 'block';
+    
+        var addButton = document.querySelector('.button');
+        addButton.onclick = addItem4;
+        localStorage.removeItem('item4');
+
+      }
+}
+
+
+
+
 // ВИДАЛЕННЯ НЕ КУПЛЕНОГО ТОВАРУ
+// Отримуємо всі кнопки "cancel-action"
+const cancelButtons = document.querySelectorAll(".cancel-action");
 
-// function removeItem() {
-//   var sectionToRemove = event.target.closest('section');
-//   var columnNew = sectionToRemove.parentElement;
-//   columnNew.removeChild(sectionToRemove);
-
-//   // Зберігаємо дані
-//   var savedItems = getSavedItems();
-//   delete savedItems['item1'];
-//   delete savedItems['item2'];
-//   delete savedItems['item3'];
-//   delete savedItems['item4'];
-//   saveItems(savedItems);
-// }
-
-// function getSavedItems() {
-//   var savedItems = localStorage.getItem('items');
-//   if (savedItems) {
-//     return JSON.parse(savedItems);
-//   } else {
-//     return {};
-//   }
-// }
-
-// function saveItems(items) {
-//   localStorage.setItem('items', JSON.stringify(items));
-// }
-
-// function removeItem() {
-//   var sectionToRemove = event.target.closest('section');
-//   var columnNew = sectionToRemove.parentElement;
-//   columnNew.removeChild(sectionToRemove);
-
-//   // Отримуємо збережені елементи
-//   var savedItems = getSavedItems();
-
-//   // Отримуємо ID елемента, який був видалений
-//   var itemId = sectionToRemove.getAttribute('id');
-
-//   // Видаляємо елемент зі збережених даних
-//   delete savedItems[itemId];
-
-//   // Зберігаємо оновлені дані
-//   saveItems(savedItems);
-// }
-
-// // Отримати збережені елементи з локального сховища
-// function getSavedItems() {
-//   var savedItems = localStorage.getItem('savedItems');
-//   return savedItems ? JSON.parse(savedItems) : {};
-// }
-
-// // Зберегти елементи у локальному сховищі
-// function saveItems(items) {
-//   localStorage.setItem('savedItems', JSON.stringify(items));
-// }
+// Ітеруємося по кожній кнопці "cancel-action" і призначаємо обробник подій
+cancelButtons.forEach(function(cancelButton) {
+  cancelButton.addEventListener("click", function() {
+    // Отримуємо батьківський елемент (секцію), який потрібно видалити
+    const section = this.parentNode;
+    // Зберігаємо інформацію про видалення елемента в локальне сховище
+    localStorage.setItem("deletedSection-" + section.id, "true");
+    // Видаляємо секцію
+    section.remove();
+  });
+});
 
 
-// function removeItem(blockNumber) {
-//   var sectionToRemove = document.querySelector('.column-new' + blockNumber);
-//   if (sectionToRemove) {
-//     var columnNew = sectionToRemove.parentNode;
-//     columnNew.removeChild(sectionToRemove);
 
-//     // Отримуємо збережені елементи
-//     var savedItems = getSavedItems();
-//     var itemName = 'item' + blockNumber;
-//     delete savedItems[itemName];
 
-//     // Зберігаємо оновлені елементи у локальному сховищі
-//     saveItems(savedItems);
-//   }
-// }
+
