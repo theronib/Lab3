@@ -9,12 +9,15 @@ function increaseQuantity(counterIndex) {
 
   const removeButton = document.querySelector(`.remove-button${counterIndex}`);
   if (counterValue > 1) {
-      removeButton.disabled = false;
+    removeButton.disabled = false;
   } else {
-      removeButton.disabled = true;
+    removeButton.disabled = true;
   }
 
-  // Зберігаємо значення лічильника в локальне сховище
+  // Оновлення значення лічильника в статистиці
+  updateStatisticItemAmount(counterIndex, counterValue);
+
+  // Збереження значення лічильника в локальне сховище
   localStorage.setItem(`counter${counterIndex}`, counterValue.toString());
 }
 
@@ -23,18 +26,32 @@ function decreaseQuantity(counterIndex) {
   let counterValue = parseInt(counterElement.textContent);
 
   if (counterValue === 1) {
-      increaseQuantity(counterIndex);
+    increaseQuantity(counterIndex);
   } else if (counterValue > 1) {
-      counterValue -= 1;
-      counterElement.textContent = counterValue.toString();
+    counterValue -= 1;
+    counterElement.textContent = counterValue.toString();
 
-      const removeButton = document.querySelector(`.remove-button${counterIndex}`);
-      if (counterValue === 1) {
-          removeButton.disabled = true;
-      }
+    const removeButton = document.querySelector(`.remove-button${counterIndex}`);
+    if (counterValue === 1) {
+      removeButton.disabled = true;
+    }
 
-      // Зберігаємо значення лічильника в локальне сховище
-      localStorage.setItem(`counter${counterIndex}`, counterValue.toString());
+    // Оновлення значення лічильника в статистиці
+    updateStatisticItemAmount(counterIndex, counterValue);
+
+    // Збереження значення лічильника в локальне сховище
+    localStorage.setItem(`counter${counterIndex}`, counterValue.toString());
+  }
+}
+
+// Функція для оновлення значення лічильника в статистиці
+function updateStatisticItemAmount(counterIndex, counterValue) {
+  const statisticItem = document.querySelector(`.product-item.item${counterIndex}`);
+  if (statisticItem) {
+    const amountElement = statisticItem.querySelector('.amount');
+    if (amountElement) {
+      amountElement.textContent = counterValue.toString();
+    }
   }
 }
 
@@ -56,10 +73,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const counterValue = localStorage.getItem(`counter${counterIndex}`);
     if (counterValue) {
       counter.querySelector('p').textContent = counterValue;
+      // Оновлення значення лічильника в статистиці
+      updateStatisticItemAmount(counterIndex, parseInt(counterValue));
     }
   });
 });
-
 
 // РЕДАГУВАННЯ НАЗВИ 
 function startEditing(element) {
@@ -254,6 +272,8 @@ cancelButtons.forEach(function(cancelButton) {
 
 
 // НЕКУЛПЕНО І КУПЛЕНО
+
+// ITEM 0
 var initialButtonText = 'Не куплено';
 var initialVisibility = 'hidden';
 
@@ -338,7 +358,10 @@ function markAsBought(button) {
     addButton.style.visibility = 'hidden';
     removeButton.style.visibility = 'hidden';
   }, 100);
+
+
 }
+
 
 function undoPurchase() {
   // Зміна тексту кнопки
@@ -368,4 +391,112 @@ function undoPurchase() {
     boughtButton.parentNode.removeChild(boughtButton);
   }
 }
+
+
+// ITEM 2
+var initialButtonText2 = 'Не куплено';
+var initialVisibility2 = 'hidden';
+
+// Перевірка, чи є збережений стан у локальному сховищі
+var storedState2 = localStorage.getItem('shoppingState2');
+if (storedState2) {
+  var state2 = JSON.parse(storedState2);
+
+  // Відновлення стану кнопки "Не куплено"
+  var buyButton2 = document.querySelector('.buy-button.not-bought-custom');
+  buyButton2.innerText = state2.buttonText;
+  buyButton2.classList.toggle('not-bought', !state2.isBought);
+  buyButton2.classList.toggle('was-bought', state2.isBought);
+
+  // Відновлення видимості кнопки "Зробити не купленим"
+  var actionButton2 = document.querySelector('.not-bought-action.not-bought-action2');
+  actionButton2.style.visibility = state2.actionButtonVisibility;
+
+  // Відновлення видимості кнопок "+", "-"
+  var addButton2 = document.querySelector('.add-button.add-button4');
+  var removeButton2 = document.querySelector('.add-button.remove-button4');
+  addButton2.style.visibility = state2.addButtonVisibility;
+  removeButton2.style.visibility = state2.removeButtonVisibility;
+}
+
+function markAsBought2(button) {
+  // Зміна тексту кнопки
+  button.innerText = 'Куплено';
+
+  // Зміна класу кнопки
+  button.classList.remove('not-bought');
+  button.classList.add('was-bought');
+
+  // Зробити кнопку "Зробити не купленим" видимою
+  var actionButton2 = document.querySelector('.not-bought-action.not-bought-action2');
+  actionButton2.style.visibility = 'visible';
+
+  // Зробити кнопки "+", "-" невидимими
+  var addButton2 = document.querySelector('.add-button.add-button4');
+  var removeButton2 = document.querySelector('.add-button.remove-button4');
+  addButton2.style.visibility = 'hidden';
+  removeButton2.style.visibility = 'hidden';
+
+  // Збереження стану у локальному сховищі
+  var state2 = {
+    buttonText: button.innerText,
+    isBought: true,
+    actionButtonVisibility: 'visible',
+    addButtonVisibility: 'hidden',
+    removeButtonVisibility: 'hidden'
+  };
+  localStorage.setItem('shoppingState2', JSON.stringify(state2));
+
+  updateStatistics();
+}
+
+function undoPurchase2() {
+  // Зміна тексту кнопки
+  var buyButton2 = document.querySelector('.buy-button.not-bought-custom');
+  buyButton2.innerText = initialButtonText2;
+
+  // Зміна класу кнопки
+  buyButton2.classList.remove('was-bought');
+  buyButton2.classList.add('not-bought');
+
+  // Приховування кнопки "Зробити не купленим"
+  var actionButton2 = document.querySelector('.not-bought-action.not-bought-action2');
+  actionButton2.style.visibility = 'hidden';
+
+  // Повернення видимості кнопок "+", "-"
+  var addButton2 = document.querySelector('.add-button.add-button4');
+  var removeButton2 = document.querySelector('.add-button.remove-button4');
+  addButton2.style.visibility = 'visible';
+  removeButton2.style.visibility = 'visible';
+
+  // Видалення збереженого стану з локального сховища
+  localStorage.removeItem('shoppingState2');
+
+  updateStatistics();
+}
+
+function updateStatistics() {
+  // Отримання списку товарів
+  var items = document.querySelectorAll('.column-new2 .product-item');
+
+  // Прохід по кожному товару і оновлення лічильників
+  items.forEach(function (item) {
+    var isBought = item.classList.contains('itemcrossed');
+    var amount = parseInt(item.querySelector('.amount').innerText);
+    if (isBought) {
+      boughtCount += amount;
+    } else {
+      remainingCount += amount;
+    }
+  });
+
+  // Оновлення значень в статистиці
+  var remainingSpan = document.querySelector('#p2 .header');
+  remainingSpan.innerText = 'Залишилося ' + remainingCount;
+
+  var boughtSpan = document.querySelector('#p2 .head-bought');
+  boughtSpan.innerText = 'Куплено ' + boughtCount;
+}
+
+
 

@@ -27,19 +27,19 @@
     <div class="mainline page1line"></div>
 
     <article class="tomato">
-      <p id="productName" onclick="startEditing(this)">Помідори</p>
+      <p id="productName" onclick="startEditing(this)">Печиво</p>
     </article>
     
     <hr class="line page1line1"></hr>
     
     <article class="cookies">
-      <p onclick="startEditing(this)">Печиво</p>
+      <p onclick="startEditing(this)">Сир</p>
     </article>
     
     <hr class="line page1line2"></hr>
     
     <article class="potato">
-      <p onclick="startEditing(this)">Сир</p>
+      <p onclick="startEditing(this)">Помідори</p>
     </article>
     
     
@@ -128,8 +128,8 @@
       </button>
     
       <button class="buy-button not-bought-custom" onclick="markAsBought2(this)">Не куплено</button>
-      <button class="not-bought-action not-bought-action2" onclick="undoPurchase2()">Зробити не купленим</button>      
-      <button class="cancel-action cancel-action1" onclick="removeItem()">
+      <button class="not-bought-action not-bought-action2"  onclick="undoPurchase2()">Зробити не купленим</button>      
+      <button class="cancel-action cancel-action1" onclick="removeItem2()">
         <p>x</p>
         <span class="tooltip tooltip1">Видалити товар зі списку</span>
       </button>      
@@ -152,8 +152,8 @@
         <span class="tooltip">Видалити товар</span>
       </button>
     
-      <button class="not-bought-custom" onclick="toggleBoughtStatus(this)">Не куплено</button>
-      <button class="not-bought-action not-bought-action3" onclick="undoPurchase2()">Зробити не купленим</button>      
+      <button class="buy-button not-bought-custom" onclick="markAsBought3(this)">Не куплено</button>
+      <button class="not-bought-action not-bought-action3"  onclick="undoPurchase3()">Зробити не купленим</button>      
 
       <button class="cancel-action cancel-action2" onclick="removeItem()">
         <p>x</p>
@@ -201,9 +201,10 @@
         <p>-</p>
         <span class="tooltip">Видалити товар</span>
       </button>
-    
+
       <button class="not-bought-custom" onclick="toggleBoughtStatus(this)">Не куплено</button>
-      <button class="cancel-action cancel-action4" onclick="removeItem()">
+      <button class="not-bought-action not-bought-action5" onclick="undoPurchase2()">Зробити не купленим</button>  
+            <button class="cancel-action cancel-action4" onclick="removeItem()">
         <p>x</p>
         <span class="tooltip tooltip1">Видалити товар зі списку</span>
       </button>
@@ -238,8 +239,8 @@
   
       <div class="line line3"></div>
   
-      <article class="product-item itemcrossed">
-        <s>Помідори</s>
+      <article class="product-item item3">
+        <p>Помідори</p>
         <span class="amount">2</span>
       </article>
     </section>
