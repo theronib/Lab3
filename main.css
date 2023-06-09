@@ -22,7 +22,7 @@
 
 .add-button1 {
   left: 403px; 
-  top: 240px;
+  top: 243px;
 }
 
 .add-button2 {
@@ -43,7 +43,7 @@
 
 .remove-button1{
   left: 310px; 
-  top: 240px; 
+  top: 243px; 
   background-color: red;
 }
 
@@ -141,9 +141,10 @@
   border: 2px solid #cecece;
   position: absolute;
   top: 26%;
-  left: 45%;
+  left: 42%;
   transform: translate(-50%, -50%);
 }
+
 
 .was-bought-1{
   top:35%;
@@ -201,13 +202,11 @@
 
 
 .tomato {
-  left: 5px;
   position: relative;
   font-family: Arial;
   font-size: 20px;
-  top: 60px; 
+  top: 42px; 
   left: -2%;
-  /* margin-bottom: -10%; */
 }
 
 .cookies, .potato {
@@ -215,7 +214,7 @@
   position: relative;
   font-family: Arial;
   font-size: 20px;
-  top: 75px;
+  top: 39px;
   left: -2%;
 
 }
@@ -269,7 +268,7 @@
   display: flex; 
   align-items: center; 
   position: absolute; 
-  top: 157px; 
+  top: 159px; 
   left: 350px; 
 }
 
@@ -285,7 +284,7 @@
   display: flex; 
   align-items: center; 
   position: absolute; 
-  top: 220px; 
+  top: 222px; 
   left: 350px; 
 }
 
@@ -296,7 +295,7 @@
     border: 2px solid #ffffff;
     padding: 30px; 
     width: 690px;
-    height: 205px;  
+    height: 210px;  
     background-color: white;
   }
 
@@ -391,6 +390,7 @@
   left: -32px;
   }
 
+
   .line2{
     top: -235px;
     width:354px;
@@ -469,22 +469,26 @@
   top: 80%;
 }
 
+.crossed-out {
+  text-decoration: line-through;
+}
+
 .column-new{
   position: absolute;
-  top: 44.1%;
+  top: 45.5%;
   left: 26.8%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
   border: 2px solid #ffffff;
   padding: 30px; 
   width: 690px;
-  height: 10px;  
+  height: 9.5px;  
   background-color: white;
   display: none;
 }
 
 .column-new2{
-  top: 54.7%;
+  top: 54.9%;
   display: none;
 }
 
@@ -503,6 +507,13 @@
   display: none;
 }
 
+.page1line1{
+  top: 43px;
+}
+
+.page1line2{
+  top: 40px;
+}
 
 .page1line3{
   height: 2px;
@@ -624,28 +635,28 @@
   border: 2px solid #cecece;
   position: absolute;
   top: 53%;
-  left: 85%;
+  left: 79.5%;
   transform: translate(-50%, -50%);
 }
 
 .cancel-action1 {
-  top: 46%; 
-  left: 94%;
+  top: 56%; 
+  left: 20%;
 }
 
 .cancel-action2 {
-  top: 48%; 
-  left: 94%;
+  top: 58%; 
+  left: 20%;
 }
 
 .cancel-action3{
-  top: 50%; 
-  left: 94%;
+  top: 60%; 
+  left: 20%;
 }
 
 .cancel-action4{
-  top: 52%;
-  left: 94%;
+  top: 62%;
+  left: 20%;
 }
 
 @media print {

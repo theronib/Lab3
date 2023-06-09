@@ -90,33 +90,6 @@ function finishEditing(element, newText) {
   element.replaceWith(updatedElement);
 }
 
-
-// НЕКУПЛЕНО -> КУПЛЕНО
-// function toggleBoughtStatus(button) {
-//   var container = button.parentNode;
-  
-//   if (button.classList.contains('not-bought')) {
-//     // Зміна стану з "Не куплено" на "Куплено"
-//     button.style.display = 'none'; // Приховати кнопку "Не куплено"
-    
-//     var boughtButton = document.createElement('button');
-//     boughtButton.textContent = 'Куплено';
-//     boughtButton.className = 'was-bought-action';
-//     boughtButton.onclick = function() {
-//       toggleBoughtStatus(boughtButton);
-//     };
-    
-//     container.appendChild(boughtButton); // Додати кнопку "Куплено"
-//   } else {
-//     // Зміна стану з "Куплено" на "Не куплено"
-//     button.style.display = ''; // Показати кнопку "Не куплено"
-    
-//     var wasBoughtButton = container.querySelector('.was-bought');
-//     container.removeChild(wasBoughtButton); // Видалити кнопку "Куплено"
-//   }
-// }
-
-
 // ДОДАВАННЯ ТОВАРУ
 function addItem() {
   var columnNew = document.querySelector('.column-new');
@@ -280,6 +253,119 @@ cancelButtons.forEach(function(cancelButton) {
 });
 
 
+// НЕКУЛПЕНО І КУПЛЕНО
+var initialButtonText = 'Не куплено';
+var initialVisibility = 'hidden';
 
+// Перевірка, чи є збережений стан у локальному сховищі
+var storedState = localStorage.getItem('shoppingState');
+if (storedState) {
+  var state = JSON.parse(storedState);
+  
+  // Відновлення стану кнопки "Не куплено"
+  var buyButton = document.querySelector('.buy-button');
+  buyButton.innerText = state.buttonText;
+  buyButton.classList.toggle('not-bought', !state.isBought);
+  buyButton.classList.toggle('was-bought', state.isBought);
 
+  // Відновлення видимості кнопки "Зробити не купленим"
+  var actionButton = document.querySelector('.not-bought-action');
+  actionButton.style.visibility = state.actionButtonVisibility;
+
+  // Відновлення стану кнопок "+", "-"
+  var addButton = document.getElementById('addButton');
+  var removeButton = document.getElementById('removeButton');
+  addButton.style.visibility = state.addButtonVisibility;
+  removeButton.style.visibility = state.removeButtonVisibility;
+
+  // Відновлення кнопки "Куплено"
+  if (state.isBought) {
+    var boughtButton = document.createElement('button');
+    boughtButton.className = 'was-bought-button';
+    boughtButton.innerText = 'Куплено';
+
+    // Застосування стилів до кнопки "Куплено"
+    boughtButton.style.color = 'rgb(117, 114, 114)';
+    boughtButton.style.backgroundColor = '#f0f0f0';
+    boughtButton.style.fontFamily = 'Arial';
+    boughtButton.style.fontWeight = 'bold';
+    boughtButton.style.fontSize = '13px';
+    boughtButton.style.width = '100px';
+    boughtButton.style.height = '10px';
+    boughtButton.style.padding = '10px';
+    boughtButton.style.textAlign = 'center';
+    boughtButton.style.display = 'flex';
+    boughtButton.style.justifyContent = 'center';
+    boughtButton.style.alignItems = 'center';
+    boughtButton.style.borderRadius = '3px';
+    boughtButton.style.border = '2px solid #cecece';
+    boughtButton.style.position = 'absolute';
+    boughtButton.style.top = '17%';
+    boughtButton.style.left = '42%';
+    boughtButton.style.transform = 'translate(-50%, -50%)';
+
+    document.body.appendChild(boughtButton);
+  }
+}
+
+function markAsBought(button) {
+  // Зміна тексту кнопки
+  button.innerText = 'Куплено';
+  
+  // Зміна класу кнопки
+  button.classList.remove('not-bought');
+  button.classList.add('was-bought');
+  
+  // Зробити кнопку not-bought-action видимою
+  var actionButton = document.querySelector('.not-bought-action');
+  actionButton.style.visibility = 'visible';
+  
+
+  // Збереження стану у локальному сховищі
+  var state = {
+    buttonText: button.innerText,
+    isBought: true,
+    actionButtonVisibility: 'visible',
+    addButtonVisibility: 'hidden',
+    removeButtonVisibility: 'hidden'
+  };
+  localStorage.setItem('shoppingState', JSON.stringify(state));
+
+  // Затримка для зміни видимості кнопок "+", "-"
+  setTimeout(function() {
+    var addButton = document.getElementById('addButton');
+    var removeButton = document.getElementById('removeButton');
+    addButton.style.visibility = 'hidden';
+    removeButton.style.visibility = 'hidden';
+  }, 100);
+}
+
+function undoPurchase() {
+  // Зміна тексту кнопки
+  var buyButton = document.querySelector('.buy-button');
+  buyButton.innerText = initialButtonText;
+  
+  // Зміна класу кнопки
+  buyButton.classList.remove('was-bought');
+  buyButton.classList.add('not-bought');
+  
+  // Приховування кнопки not-bought-action
+  var actionButton = document.querySelector('.not-bought-action');
+  actionButton.style.visibility = initialVisibility;
+
+  // Повернення видимості кнопок "+", "-"
+  var addButton = document.getElementById('addButton');
+  var removeButton = document.getElementById('removeButton');
+  addButton.style.visibility = 'visible';
+  removeButton.style.visibility = 'visible';
+
+  // Видалення збереженого стану з локального сховища
+  localStorage.removeItem('shoppingState');
+
+  // Видалення кнопки "Куплено"
+  var boughtButton = document.querySelector('.was-bought-button');
+  if (boughtButton) {
+    boughtButton.parentNode.removeChild(boughtButton);
+  }
+}
 
