@@ -113,79 +113,150 @@ function addItem() {
   var columnNew = document.querySelector('.column-new');
   var searchInput = document.getElementById('searchInput');
 
-  var newItemAdded = document.querySelector('.newitem-added');
-  newItemAdded.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+  if (searchInput.value.trim() !== '') {
+    var newItemAdded = document.querySelector('.newitem-added');
+    newItemAdded.innerHTML = searchInput.value;
 
-  columnNew.style.display = 'block'; // Змінюємо стиль блоку на видимий
+    columnNew.style.display = 'block';
 
-  var addButton = document.querySelector('.button');
-  addButton.onclick = addItem2; // Змінюємо функцію, яка викликається при натисканні на кнопку
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem2;
 
-  searchInput.value = ''; // Очищуємо поле вводу
+    searchInput.value = '';
 
-  // Зберігаємо значення поля в локальному сховищі
-  localStorage.setItem('item1', newItemAdded.innerHTML);
+    localStorage.setItem('item1', newItemAdded.innerHTML);
+  } else {
+    alert('Будь ласка, введіть назву товару!');
+  }
 }
+
+function addItem2() {
+  var columnNew2 = document.querySelector('.column-new2');
+  var searchInput = document.getElementById('searchInput');
+
+  if (searchInput.value.trim() !== '') {
+    var newItemAdded2 = document.querySelector('.added2');
+    newItemAdded2.innerHTML = searchInput.value;
+
+    columnNew2.style.display = 'block';
+
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem3;
+
+    searchInput.value = '';
+
+    localStorage.setItem('item2', newItemAdded2.innerHTML);
+  } else {
+    alert('Будь ласка, введіть назву товару!');
+  }
+}
+
+function addItem3() {
+  var columnNew3 = document.querySelector('.column-new3');
+  var searchInput = document.getElementById('searchInput');
+
+  if (searchInput.value.trim() !== '') {
+    var newItemAdded3 = document.querySelector('.added3');
+    newItemAdded3.innerHTML = searchInput.value;
+
+    columnNew3.style.display = 'block';
+
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem4;
+
+    searchInput.value = '';
+
+    localStorage.setItem('item3', newItemAdded3.innerHTML);
+  } else {
+    alert('Будь ласка, введіть назву товару!');
+  }
+}
+
+function addItem4() {
+  var columnNew4 = document.querySelector('.column-new4');
+  var searchInput = document.getElementById('searchInput');
+
+  if (searchInput.value.trim() !== '') {
+    var newItemAdded4 = document.querySelector('.added4');
+    newItemAdded4.innerHTML = searchInput.value;
+
+    columnNew4.style.display = 'block';
+
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem4;
+
+    searchInput.value = '';
+
+    localStorage.setItem('item4', newItemAdded4.innerHTML);
+  } else {
+    alert('Будь ласка, введіть назву товару!');
+  }
+}
+
 
 
 function addItem2() {
   var columnNew2 = document.querySelector('.column-new2');
   var searchInput = document.getElementById('searchInput');
 
-  var newItemAdded2 = document.querySelector('.added2');
-  newItemAdded2.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+  if (searchInput.value.trim() !== '') {
+    var newItemAdded2 = document.querySelector('.added2');
+    newItemAdded2.innerHTML = searchInput.value;
 
-  columnNew2.style.display = 'block'; // Змінюємо стиль блоку на видимий
+    columnNew2.style.display = 'block';
 
-  var addButton = document.querySelector('.button');
-  addButton.onclick = addItem3; // Змінюємо функцію, яка викликається при натисканні на кнопку
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem3;
 
-  searchInput.value = ''; // Очищуємо поле вводу
+    searchInput.value = '';
 
-  // Зберігаємо значення поля в локальному сховищі
-  localStorage.setItem('item2', newItemAdded2.innerHTML);
+    localStorage.setItem('item2', newItemAdded2.innerHTML);
+  } else {
+    alert('Будь ласка, введіть назву товару!');
+  }
 }
 
-
-// Функція для додавання товару 3
 function addItem3() {
   var columnNew3 = document.querySelector('.column-new3');
   var searchInput = document.getElementById('searchInput');
 
-  var newItemAdded3 = document.querySelector('.added3');
-  newItemAdded3.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+  if (searchInput.value.trim() !== '') {
+    var newItemAdded3 = document.querySelector('.added3');
+    newItemAdded3.innerHTML = searchInput.value;
 
-  columnNew3.style.display = 'block'; // Змінюємо стиль блоку на видимий
+    columnNew3.style.display = 'block';
 
-  var addButton = document.querySelector('.button');
-  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem4;
 
-  searchInput.value = ''; // Очищуємо поле вводу
+    searchInput.value = '';
 
-  // Зберігаємо значення поля в локальному сховищі
-  localStorage.setItem('item3', newItemAdded3.innerHTML);
+    localStorage.setItem('item3', newItemAdded3.innerHTML);
+  } else {
+    alert('Будь ласка, введіть назву товару!');
+  }
 }
 
-
-// Функція для додавання товару 4
 function addItem4() {
   var columnNew4 = document.querySelector('.column-new4');
   var searchInput = document.getElementById('searchInput');
 
-  var newItemAdded4 = document.querySelector('.added4');
-  newItemAdded4.innerHTML = searchInput.value; // Замінюємо текст надпису на значення з поля вводу
+  if (searchInput.value.trim() !== '') {
+    var newItemAdded4 = document.querySelector('.added4');
+    newItemAdded4.innerHTML = searchInput.value;
 
-  columnNew4.style.display = 'block'; // Змінюємо стиль блоку на видимий
+    columnNew4.style.display = 'block';
 
-  var addButton = document.querySelector('.button');
-  addButton.onclick = addItem4; // Змінюємо функцію, яка викликається при натисканні на кнопку
+    var addButton = document.querySelector('.button');
+    addButton.onclick = addItem4;
 
-  searchInput.value = ''; // Очищуємо поле вводу
+    searchInput.value = '';
 
-  // Зберігаємо значення поля в локальному сховищі
-  localStorage.setItem('item4', newItemAdded4.innerHTML);
+    localStorage.setItem('item4', newItemAdded4.innerHTML);
+  } else {
+    alert('Будь ласка, введіть назву товару!');
+  }
 }
-
 
 // Функція для завантаження доданих товарів під час завантаження сторінки
 window.onload = function() {   
