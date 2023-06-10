@@ -571,3 +571,29 @@ function updateStatistics() {
 
 
 
+// Отримуємо посилання на елементи
+// Отримуємо посилання на елементи
+var searchInput = document.getElementById("searchInput");
+var addProductButton = document.getElementById("addProductButton");
+var p2Section = document.getElementById("p2");
+
+// Додаємо обробник події для кнопки "Додати"
+addProductButton.addEventListener("click", function() {
+  var productName = searchInput.value; // Отримуємо значення поля вводу для назви товару
+
+  if (productName.trim() !== "") { // Перевіряємо, чи введено значення назви товару
+    // Створюємо розмітку для нового товару
+    var newProductHTML = `
+      <article class="product-item">
+        <p>${productName}</p>
+        <span class="amount">1</span>
+      </article>
+    `;
+
+    // Додаємо новий товар до статистики p2
+    p2Section.innerHTML += newProductHTML;
+
+    // Очищаємо поле вводу
+    searchInput.value = "";
+  }
+});
